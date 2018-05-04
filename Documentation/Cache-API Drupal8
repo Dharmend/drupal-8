@@ -1,0 +1,29 @@
+
+Contexts:
+
+1 - I use contexts to allow different caching for different people. But remember, contexts aren't just user-based; they can also be based on ip, theme or url,
+
+Tags : 
+
+What are the bits and pieces used to build the markup such that if any of them change, then the cached markup becomes outdated and needs to be regenerated? For instance, if a user changes her username, any cached instances using the old name will need to be regenerated. The tags may look like 'tags' => ['user:3'],. For HeyTaco!, I used 'tags' => ['user_list'],. This means that any user changing his/her user info will invalidate the existing cached block, forcing it to be rendered anew for everyone.
+
+
+Keys vs Contexts : 
+
+let keys broadly define the thing being represented and let contexts take care of the variations. So keys are for completely different instances of a thing (ex. different menus, users, etc.) Contexts are for varying an instance, as in, "When should this item look different to different types of users?"
+
+Max-Age
+
+From Drupal.org: When does this rendering become outdated? Is it only valid for a limited period of time?
+
+					Configuration
+
+By default cached data is stored in the database. This can be configured though so that all cached data, or that of an individual cache bin, uses a different cache backend, such as APCu or Memcache, for storage.
+
+In a settings.php file, you can override the service used for a particular cache bin. For example, if your service implementation of \Drupal\Core\Cache\CacheBackendInterface was called cache.custom, the following line would make Drupal use it for the 'cache_render' bin:
+
+$settings['cache']['bins']['render'] = 'cache.custom';
+
+Q:: How to know how many functions are there in the class.
+Ans: $class_methods = get_class_methods('myclass');
+
