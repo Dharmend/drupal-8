@@ -1,0 +1,13 @@
+name: Adapter OOP Design Pattern
+type: module
+description: 'Adapter/Wrapper.'
+package: OOP Design Patterns
+# core: 8.x
+dependencies:
+  - oop_design_patterns
+
+# Information added by Drupal.org packaging script on 2015-12-08
+version: '8.x-1.0'
+core: '8.x'
+project: 'oop_design_patterns'
+datestamp: 1449541758
